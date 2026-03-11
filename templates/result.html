@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis Result</title>
+</head>
+<body>
+
+    <h1>ATS Score: {{ feedback.ats_score }}</h1>
+
+    <h2>Strengths</h2>
+    <ul>
+        {% for item in feedback.strengths %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Weaknesses</h2>
+    <ul>
+        {% for item in feedback.weaknesses %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Missing Keywords</h2>
+    <ul>
+        {% for item in feedback.missing_keywords %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Improvement Plan</h2>
+    <ul>
+        {% for item in feedback.improvement_plan %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
