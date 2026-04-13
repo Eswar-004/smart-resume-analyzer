@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,jsonify,render_template
+from flask import Flask,render_template,request,jsonify,render_template,redirect,url_for
 from models import add_user,get_user_by_email
 import pdfplumber
 import json
@@ -9,7 +9,7 @@ app= Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Server Running"
+    return redirect(url_for('upload'))
 
 @app.route('/upload',methods=['GET','POST'])
 def upload():
