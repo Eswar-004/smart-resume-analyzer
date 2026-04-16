@@ -7,4 +7,3 @@ def get_connection():
     database='project',
     cursorclass=pymysql.cursors.DictCursor
     )
-       
