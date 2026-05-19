@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register Page</title>
+    <title>Register - Smart Resume Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h2>Register</h2>
-    <form action="/register" method="POST" >
-        <label>Enter name:</label>
-        <input type="text" name="name" required > <br><br>
-        <label>Enter email:</label>
-        <input type="email" name="email" required><br><br>
-        <label>Enter password:</label>
-        <input type="password" name="password" required><br><br>
-        <button type="submit">Register</button>
-    </form>
+    <nav class="navbar">
+        <div class="logo">Smart Resume Analyzer</div>
+    </nav>
+    <div class="container">
+        <div class="auth-container">
+            <h1>Create Account</h1>
+            <p class="subtitle">Sign up to start analyzing your resume</p>
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Create a password">
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <div class="switch-page">
+                Already have an account? <a href="/login">Login here</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resume Analysis Result</title>
+    <title>Analysis Result - Smart Resume Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">Smart Resume Analyzer</div>
+        <div class="nav-links">
+            <a href="/upload">Upload New Resume</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="result-container">
+            <h1>Resume Analysis Results</h1>
+            
+            <div class="score-display">
+                <div class="score-circle">
+                    <span class="score">{{ feedback.ats_score }}</span>
+                </div>
+                <p class="score-text">ATS Compatibility Score</p>
+            </div>
 
-    <h1>ATS Score: {{ feedback.ats_score }}</h1>
+            <div class="result-section strengths">
+                <h2>✓ Strengths</h2>
+                <ul>
+                    {% for item in feedback.strengths %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-    <h2>Strengths</h2>
-    <ul>
-        {% for item in feedback.strengths %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+            <div class="result-section weaknesses">
+                <h2>✗ Weaknesses</h2>
+                <ul>
+                    {% for item in feedback.weaknesses %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-    <h2>Weaknesses</h2>
-    <ul>
-        {% for item in feedback.weaknesses %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+            <div class="result-section missing-keywords">
+                <h2>⚠ Missing Keywords</h2>
+                <ul>
+                    {% for item in feedback.missing_keywords %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-    <h2>Missing Keywords</h2>
-    <ul>
-        {% for item in feedback.missing_keywords %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+            <div class="result-section improvement-plan">
+                <h2>📈 Improvement Plan</h2>
+                <ul>
+                    {% for item in feedback.improvement_plan %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-    <h2>Improvement Plan</h2>
-    <ul>
-        {% for item in feedback.improvement_plan %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-
+            <div class="action-buttons">
+                <a href="/upload" class="primary">Analyze Another Resume</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -16,7 +16,12 @@ Return ONLY pure JSON.
 Do NOT add explanation.
 Do NOT add markdown.
 Do NOT add text before or after JSON.
-Give 70+ only for top resume rest others give 40 to 60.
+Give 70+ only for top resume rest others give 30 to 50 and if it is not a resume give less than 10.
+
+IMPORTANT:
+- Be strict
+- Don’t over-score
+- No random scoring
 
 Follow this Strict format:
 
