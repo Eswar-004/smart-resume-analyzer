@@ -2,11 +2,10 @@ import os
 from groq import Groq
 import json
 
-connection = Groq(api_key=os.getenv("GROQ_API_KEY"))
-
-def analyze_resume_with_ai(data,JD):
+def analyze_resume_with_ai(data, JD):
     data = data[:4000]
     JD = JD[:4000]
+
     prompt = f"""
 You are an ATS resume screening system.
 
@@ -46,6 +45,12 @@ JOB DESCRIPTION:
 {JD}
 """
     try:
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            return {"error": "GROQ_API_KEY not set"}
+
+        connection = Groq(api_key=api_key)
+
         completion = connection.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
@@ -53,9 +58,9 @@ JOB DESCRIPTION:
         )
 
         ai_text = completion.choices[0].message.content
-        print("ai:",ai_text)
+        print("ai:", ai_text)
         ai_json = json.loads(ai_text)
         return ai_json
-      
+
     except Exception as e:
         return str(e)

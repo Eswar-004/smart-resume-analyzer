@@ -4,3 +4,4 @@ pymysql
 werkzeug
 groq
 python-dotenv
+gunicorn
