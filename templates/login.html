@@ -15,6 +15,9 @@
                 {% if error %}
                 <div class="error">{{ error }}</div>
                 {% endif %}
+                {% if success_message %}
+                <div class="success">{{ success_message }}</div>
+                {% endif %}
                 <form action="/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email Address</label>

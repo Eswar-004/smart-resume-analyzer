@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>History - Smart Resume Analyzer</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="logo">Smart Resume Analyzer</div>
+            <div class="nav-links">
+                <a href="/upload">Upload</a>
+                <a href="/history" style="border-bottom: 2px solid #667eea; padding-bottom: 2px;">History</a>
+                <a href="/logout" class="logout-btn">Logout</a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="history-container">
+                <h1>Your Analysis History</h1>
+                
+                {% if history %}
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Resume Filename</th>
+                                <th>Date Analyzed</th>
+                                <th>Job Description</th>
+                                <th>ATS Score</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in history %}
+                            <tr>
+                                <td>{{ record.resume_filename }}</td>
+                                <td>{{ record.created_at.strftime('%Y-%m-%d %H:%M') if record.created_at else 'N/A' }}</td>
+                                <td>
+                                    {% if record.job_description|length > 60 %}
+                                        {{ record.job_description[:57] }}...
+                                    {% else %}
+                                        {{ record.job_description }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if record.ats_score >= 70 %}
+                                        <span class="score-badge high">{{ record.ats_score }}</span>
+                                    {% elif record.ats_score >= 30 %}
+                                        <span class="score-badge mid">{{ record.ats_score }}</span>
+                                    {% else %}
+                                        <span class="score-badge low">{{ record.ats_score }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="/result/{{ record.id }}" class="history-action-btn">View Details</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="empty-history">
+                    <p>No resume analysis history found.</p>
+                    <p><a href="/upload">Upload your first resume</a> to get started!</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

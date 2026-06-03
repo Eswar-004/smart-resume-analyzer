@@ -8,13 +8,19 @@
     <nav class="navbar">
         <div class="logo">Smart Resume Analyzer</div>
         <div class="nav-links">
-            <a href="/upload">Upload New Resume</a>
+            <a href="/upload">Upload</a>
+            <a href="/history">History</a>
             <a href="/logout" class="logout-btn">Logout</a>
         </div>
     </nav>
     <div class="container">
         <div class="result-container">
             <h1>Resume Analysis Results</h1>
+            
+            <div class="metadata" style="margin-bottom: 2rem; color: #666; font-size: 0.95rem; text-align: center; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                <span style="margin-right: 1.5rem;"><strong>File:</strong> {{ feedback.resume_filename }}</span>
+                <span><strong>Date:</strong> {{ feedback.created_at.strftime('%Y-%m-%d %H:%M') if feedback.created_at else 'Just now' }}</span>
+            </div>
             
             <div class="score-display">
                 <div class="score-circle">
@@ -61,6 +67,7 @@
 
             <div class="action-buttons">
                 <a href="/upload" class="primary">Analyze Another Resume</a>
+                <a href="/history" class="secondary" style="border: 1px solid #ccc; background-color: #f8f9ff;">View History</a>
             </div>
         </div>
     </div>
