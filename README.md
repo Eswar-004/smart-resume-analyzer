@@ -1,6 +1,7 @@
 # Smart Resume Analyzer
 
 AI-powered web application that analyzes resumes and provides feedback to improve them.
+🌐 **Live Demo:** https://smart-resume-analyzer-production-ff16.up.railway.app/
 
 ## Features
 - Upload resume (PDF)
