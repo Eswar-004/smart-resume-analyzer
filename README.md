@@ -1,56 +1,77 @@
 # Smart Resume Analyzer
 
-AI-powered web application that analyzes resumes and provides feedback to improve them.
-🌐 **Live Demo:** https://smart-resume-analyzer-production-ff16.up.railway.app/
+AI-powered web application that analyzes resumes and provides personalized feedback to help users improve their resumes.
 
-## Features
-- Upload resume (PDF)
-- Extract resume text using pdfplumber
-- AI-powered resume feedback using Groq API
-- User authentication (login and register)
-- Resume analysis result page
-- History tracking
+## 🌐 Live Demo
 
-## Tech Stack
+** https://smart-resume-analyzer-production-ff16.up.railway.app/
+
+## 🚀 Features
+
+- PDF Resume Upload
+- Resume Text Extraction using pdfplumber
+- AI-Powered Resume Analysis using Groq API
+- ATS Compatibility Score Generation
+- Strengths Identification
+- Weakness Analysis
+- Missing Keywords Detection
+- Personalized Improvement Suggestions
+- User Registration & Login
+- Analysis History Tracking
+
+## 🛠 Tech Stack
+
+### Backend
 - Python
 - Flask
 - MySQL
-- HTML 
+
+### Frontend
+- HTML
+- CSS
+- JavaScript
+
+### AI
 - Groq API
 
-## Project Structure
+### Deployment
+- Railway Cloud
 
-smart-resume-analyzer
+## 📂 Project Structure
+smart-resume-analyzer/
 │
 ├── app.py
 ├── ai_api.py
 ├── db.py
 ├── models.py
 ├── templates/
-│   ├── login.html
-│   ├── register.html
-│   ├── upload.html
-│   ├── result.html
-│   └── history.html
 ├── static/
-└── .gitignore
+├── requirements.txt
+├── LICENSE
+└── README.md
 
+## ⚙️ Installation
 
-## How to Run
-
-1. Clone the repository
+### Clone Repository
 
 git clone https://github.com/Eswar-004/smart-resume-analyzer.git
+cd smart-resume-analyzer
 
-2. Install dependencies
+### Install Dependencies
 
 pip install -r requirements.txt
 
-3. Run the application
+
+### Run Application
 
 python app.py
 
+## 👨‍💻 Author
 
-## Author
+**Eswara Perumal S**
 
-Eswara Perumal S
+GitHub: https://github.com/Eswar-004
+
+## 📄 License
+
+This project is licensed under the MIT License.
