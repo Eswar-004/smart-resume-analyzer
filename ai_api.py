@@ -19,23 +19,23 @@ Give 70+ only for top resume rest others give 30 to 50 and if it is not a resume
 
 IMPORTANT:
 - Be strict
-- Don’t over-score
+- Don't over-score
 - No random scoring
 
 Follow this Strict format:
 
 {{
-"ats_score": integer,
-"strengths": [
-"Mention section name like 'Skills: ...'",
-"Mention section name like 'Experience: ...'"
-],
-"weaknesses": [
-"Mention section name like 'Projects: ...'",
-"Mention section name like 'Formatting: ...'"
-],
-"missing_keywords": [],
-"improvement_plan": []
+  "ats_score": integer,
+  "strengths": [
+    "Mention section name like 'Skills: ...'",
+    "Mention section name like 'Experience: ...'"
+  ],
+  "weaknesses": [
+    "Mention section name like 'Projects: ...'",
+    "Mention section name like 'Formatting: ...'"
+  ],
+  "missing_keywords": [],
+  "improvement_plan": []
 }}
 
 RESUME:
@@ -44,23 +44,30 @@ RESUME:
 JOB DESCRIPTION:
 {JD}
 """
+
     try:
         api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
             return {"error": "GROQ_API_KEY not set"}
 
-        connection = Groq(api_key=api_key)
+        client = Groq(api_key=api_key)
 
-        completion = connection.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3
+        completion = client.chat.completions.create(
+            model="gpt-oss-120b",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.3,
+            response_format={"type": "json_object"}  # Forces valid JSON
         )
 
-        ai_text = completion.choices[0].message.content
-        print("ai:", ai_text)
-        ai_json = json.loads(ai_text)
-        return ai_json
+        return json.loads(completion.choices[0].message.content)
+
+    except json.JSONDecodeError:
+        return {"error": "Model returned invalid JSON"}
 
     except Exception as e:
-        return str(e)
+        return {"error": str(e)}
