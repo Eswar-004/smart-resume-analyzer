@@ -6,11 +6,11 @@ load_dotenv()
 
 def get_connection():
     return pymysql.connect(
-        host=os.getenv("MYSQLHOST"),
+        host=os.getenv("DB_HOST"),
         port=int(os.getenv("MYSQLPORT", 3306)),
-        user=os.getenv("MYSQLUSER"),
-        password=os.getenv("MYSQLPASSWORD"),
-        database=os.getenv("MYSQLDATABASE"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=False
     )
