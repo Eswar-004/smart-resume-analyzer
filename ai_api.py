@@ -60,7 +60,7 @@ JOB DESCRIPTION:
                     "content": prompt
                 }
             ],
-            temperature=0.3,
+            temperature=0.2,
             response_format={"type": "json_object"}  # Forces valid JSON
         )
 
