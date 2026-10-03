@@ -6,7 +6,7 @@ AI-powered web application that analyzes resumes and provides personalized feedb
 
 **Hosted on AWS EC2**
 
-**Live Application:** `http://13.126.224.72`
+**Live Application:** `http://13.127.63.75`
 
 ## Features
 
